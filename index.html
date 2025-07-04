@@ -350,6 +350,22 @@
                 e.target.classList.add('opacity-0', 'invisible');
             }
         });
+        document.getElementById('search-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const id = prompt("Enter ID to search (e.g., ID002):");
+    if (!id) return;
+
+    const res = await fetch("http://localhost:3000/search", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ id })
+    });
+
+    const result = await res.text();
+    alert("Search Result:\n" + result); // Or render in DOM
+});
     </script>
 </body>
 </html>
