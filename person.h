@@ -12,4 +12,3 @@ struct Person {
         : id(i), name(n), age(a), gender(g), location(l) {}
 };
 #endif
-
