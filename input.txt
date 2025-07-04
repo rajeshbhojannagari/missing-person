@@ -1,5 +1,1 @@
-ID001,Rohan,15,Male,Delhi
-ID002,Sita,17,Female,Mumbai
-ID003,Aarav,14,Male,Chennai
-ID004,Kiran,18,Male,Bangalore
-ID005,Meena,16,Female,Hyderabad
+Meena
