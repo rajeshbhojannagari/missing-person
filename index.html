@@ -193,10 +193,6 @@
             </div>
         </div>
     </div>
-<div class="p-6 bg-gray-100 rounded-lg shadow-md mt-6">
-    <h2 class="text-xl font-bold mb-2">Search Result</h2>
-    <pre id="search-result" class="text-gray-800">Waiting for search result...</pre>
-</div>
     <!-- Enhanced Search Modal -->
     <div id="search-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 opacity-0 invisible transition">
         <div class="bg-white rounded-lg shadow-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto m-4">
@@ -276,15 +272,6 @@
             </div>
         </div>
     </footer>
-    <script>
-        fetch("output.txt")
-      .then(response => response.text())
-      .then(data => {
-          document.getElementById("search-result").innerText = data;
-      })
-      .catch(err => {
-          document.getElementById("search-result").innerText = "Error loading result.";
-      });
-    </script>
+
 </body>
 </html>

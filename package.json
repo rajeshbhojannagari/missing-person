@@ -1,0 +1,24 @@
+{
+  "name": "missing-person",
+  "version": "1.0.0",
+  "description": "\"# missing-person\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajeshbhojannagari/missing-person.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajeshbhojannagari/missing-person/issues"
+  },
+  "homepage": "https://github.com/rajeshbhojannagari/missing-person#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
