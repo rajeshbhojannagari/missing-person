@@ -6,10 +6,19 @@
     <title>Missing Person Finder - Reuniting Families</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        
+    </style>
 </head>
 <body class="font-sans bg-gray-50">
+
     <!-- Header Section -->
     <header class="bg-white shadow-lg sticky top-0 z-40">
         <div class="container mx-auto px-4 py-3">
@@ -20,39 +29,18 @@
                     </div>
                     <div>
                         <h1 class="text-xl font-bold text-gray-800">Missing Person Finder</h1>
-                        <p class="text-xs text-gray-500">Reuniting families since 2025</p>
+                        <p class="text-xs text-gray-500">Reuniting families since 2020</p>
                     </div>
                 </div>
                 
                 <div class="flex items-center space-x-4">
-                    <div class="hidden md:flex items-center space-x-2 bg-green-100 px-3 py-1 rounded-full">
-                        <div class="w-2 h-2 bg-green-500 rounded-full pulse-dot"></div>
-                        <span class="text-sm text-green-700">Live Updates</span>
-                    </div>
-                    <div class="hidden md:flex items-center space-x-2 bg-blue-100 px-3 py-1 rounded-full">
-                        <i class="fas fa-database text-blue-600"></i>
-                        <span class="text-sm text-blue-700" id="total-cases">0 Active Cases</span>
-                    </div>
                     <nav class="hidden md:flex space-x-6">
                         <a href="#" class="text-blue-600 font-medium hover:text-blue-800">Dashboard</a>
-                        <a href="#" class="text-gray-600 hover:text-blue-600">Resources</a>
-                        <a href="#" class="text-gray-600 hover:text-blue-600">Contact</a>
                     </nav>
-                    <button id="mobile-menu-button" class="md:hidden text-gray-600">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
                 </div>
             </div>
         </div>
         
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-4 py-2 space-y-2">
-                <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Dashboard</a>
-                <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Resources</a>
-                <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
-            </div>
-        </div>
     </header>
 
     <!-- Hero Section -->
@@ -61,7 +49,7 @@
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-12">
                 <h1 class="text-4xl md:text-6xl font-bold mb-6">Every Second Counts</h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">A Simple Tool to Help Find Missing Persons – Real-Time Updates and Community Support to Bring Families Together.</p>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Advanced platform helping families reunite. Real-time alerts, community support, and professional resources.</p>
                 
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                     <button id="report-missing-btn" class="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-lg font-medium text-lg shadow-lg transform hover:scale-105 transition">
@@ -70,41 +58,6 @@
                     <button id="search-database-btn" class="glass-effect hover:bg-white hover:bg-opacity-20 px-8 py-4 rounded-lg font-medium text-lg shadow-lg transform hover:scale-105 transition">
                         <i class="fas fa-database mr-2"></i>Search Database
                     </button>
-                </div>
-                
-                <div class="flex justify-center items-center space-x-8 text-sm">
-                    <div class="flex items-center">
-                        <i class="fas fa-clock mr-2"></i>
-                        <span id="last-updated">Last updated: Just now</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-users mr-2"></i>
-                        <span id="online-users">0 volunteers online</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Stats Dashboard -->
-    <section class="py-8 bg-white shadow-sm">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-blue-50 p-4 rounded-lg text-center">
-                    <div class="text-2xl font-bold text-blue-600" id="stat-missing">0</div>
-                    <div class="text-sm text-gray-600">Missing Cases</div>
-                </div>
-                <div class="bg-green-50 p-4 rounded-lg text-center">
-                    <div class="text-2xl font-bold text-green-600" id="stat-found">0</div>
-                    <div class="text-sm text-gray-600">Found This Month</div>
-                </div>
-                <div class="bg-orange-50 p-4 rounded-lg text-center">
-                    <div class="text-2xl font-bold text-orange-600" id="stat-sightings">0</div>
-                    <div class="text-sm text-gray-600">Recent Sightings</div>
-                </div>
-                <div class="bg-purple-50 p-4 rounded-lg text-center">
-                    <div class="text-2xl font-bold text-purple-600" id="stat-volunteers">0</div>
-                    <div class="text-sm text-gray-600">Active Volunteers</div>
                 </div>
             </div>
         </div>
@@ -115,20 +68,6 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center mb-8">
                 <h2 class="text-3xl font-bold text-gray-800">Active Missing Persons</h2>
-                <div class="flex items-center space-x-4">
-                    <div class="flex items-center space-x-2">
-                        <label class="text-sm text-gray-600">Sort by:</label>
-                        <select id="sort-filter" class="px-3 py-1 border rounded-lg text-sm">
-                            <option value="recent">Most Recent</option>
-                            <option value="priority">Priority Level</option>
-                            <option value="location">Location</option>
-                            <option value="age">Age</option>
-                        </select>
-                    </div>
-                    <button id="filter-btn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                        <i class="fas fa-filter mr-2"></i>Filter
-                    </button>
-                </div>
             </div>
             
             <div id="missing-persons-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -145,43 +84,6 @@
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">How Our Platform Works</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center p-6 rounded-lg hover:bg-blue-50 transition group">
-                    <div class="bg-red-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 group-hover:bg-red-200 transition">
-                        <i class="fas fa-plus text-red-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Report Missing</h3>
-                    <p class="text-gray-600">Quick form with photo upload and instant alert creation.</p>
-                </div>
-                <div class="text-center p-6 rounded-lg hover:bg-blue-50 transition group">
-                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-200 transition">
-                        <i class="fas fa-broadcast-tower text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">AI Distribution</h3>
-                    <p class="text-gray-600">Automated sharing across social media, law enforcement networks, and volunteer communities.</p>
-                </div>
-                <div class="text-center p-6 rounded-lg hover:bg-blue-50 transition group">
-                    <div class="bg-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 group-hover:bg-green-200 transition">
-                        <i class="fas fa-eye text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Community Search</h3>
-                    <p class="text-gray-600">Crowdsourced sightings, real-time updates, and verified tip reporting system.</p>
-                </div>
-                <div class="text-center p-6 rounded-lg hover:bg-blue-50 transition group">
-                    <div class="bg-purple-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 group-hover:bg-purple-200 transition">
-                        <i class="fas fa-heart text-purple-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Reunite Families</h3>
-                    <p class="text-gray-600">Secure communication, professional support, and celebration of successful reunions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Report Missing Person Modal -->
     <div id="report-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 opacity-0 invisible transition">
         <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto m-4">
@@ -191,8 +93,109 @@
                     <i class="fas fa-times"></i>
                 </button>
             </div>
+            <form id="missing-person-form" class="p-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Personal Information -->
+                    <div class="md:col-span-2">
+                        <h4 class="text-lg font-semibold mb-4 text-gray-800">Personal Information</h4>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                        <input type="text" name="name" required class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Age *</label>
+                        <input type="number" name="age" required class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Gender *</label>
+                        <select name="gender" required class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Height</label>
+                        <input type="text" name="height" placeholder="e.g., 5'6&quot;" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Weight</label>
+                        <input type="text" name="weight" placeholder="e.g., 150 lbs" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Eye Color</label>
+                        <select name="eyeColor" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Select</option>
+                            <option value="brown">Brown</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                            <option value="hazel">Hazel</option>
+                            <option value="gray">Gray</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Missing Details -->
+                    <div class="md:col-span-2 mt-6">
+                        <h4 class="text-lg font-semibold mb-4 text-gray-800">Missing Details</h4>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Last Seen Date *</label>
+                        <input type="date" name="lastSeen" required class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Last Known Location *</label>
+                        <input type="text" name="location" required placeholder="Street address, city, state" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Physical Description *</label>
+                        <textarea name="description" rows="3" required placeholder="Hair color, build, distinguishing features, etc." class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    </div>                    
+
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Recent Photo *</label>
+                        <input type="file" name="photo" accept="image/*" required class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        <p class="text-xs text-gray-500 mt-1">Upload a clear, recent photo (JPG, PNG, max 5MB)</p>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Your Name *</label>
+                        <input type="text" name="contactName" required class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Relationship *</label>
+                        <select name="relationship" required class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Select Relationship</option>
+                            <option value="parent">Parent</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="sibling">Sibling</option>
+                            <option value="friend">Friend</option>
+                            <option value="other">Other Family Member</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                        <input type="tel" name="phone" required class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                        <input type="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+                
+                <div class="mt-6 flex justify-end space-x-4">
+                    <button type="button" id="cancel-form" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">Cancel</button>
+                    <button type="submit" class="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+                        <i class="fas fa-paper-plane mr-2"></i>Submit Report
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
+
     <!-- Enhanced Search Modal -->
     <div id="search-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 opacity-0 invisible transition">
         <div class="bg-white rounded-lg shadow-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto m-4">
@@ -202,76 +205,151 @@
                     <i class="fas fa-times"></i>
                 </button>
             </div>
+            <div class="p-6">
+                <form id="search-form" class="mb-6">
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" name="searchName" placeholder="Enter name" class="w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Age Range</label>
+                            <div class="flex space-x-2">
+                                <input type="number" name="ageMin" placeholder="Min" class="w-1/2 px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                <input type="number" name="ageMax" placeholder="Max" class="w-1/2 px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+                            <select name="searchGender" class="w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                <option value="">Any</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                            <input type="text" name="searchLocation" placeholder="City, State" class="w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                    <div class="mt-4 flex justify-between items-center">
+                        <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-search mr-2"></i>Search
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="search-results" class="border-t pt-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="text-lg font-semibold">Search Results</h4>
+                        <span id="results-count" class="text-sm text-gray-600">0 results found</span>
+                    </div>
+                    <div id="results-container" class="space-y-4">
+                        <!-- Results will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 opacity-0 invisible transition">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-check text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2" id="confirmation-title">Report Submitted Successfully</h3>
+            <p class="text-gray-600 mb-6" id="confirmation-message">Thank you for your submission. We'll review it and contact you if we need more information.</p>
+            <button id="close-confirmation" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">OK</button>
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4 flex items-center">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
                         <div class="bg-blue-600 text-white p-2 rounded-lg mr-3">
                             <i class="fas fa-search"></i>
                         </div>
                         Missing Person Finder
                     </h3>
-                    <p class="text-gray-400">A community-powered platform dedicated to reuniting families through technology and collaboration.</p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Report Missing Person</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Search Database</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Volunteer</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Resources</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">Resources</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Safety Tips</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">What to Do When Someone Goes Missing</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Support Services</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">Contact Us</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
-                            <span class="text-gray-400">office<br></span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3 text-gray-400"></i>
-                            <span class="text-gray-400">123456789 </span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-gray-400"></i>
-                            <span class="text-gray-400">email us</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-headset mr-3 text-gray-400"></i>
-                            <span class="text-gray-400">24/7 Support Hotline</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Missing Person Finder. All rights reserved.</p>
+                <p>&copy; 2023 Missing Person Finder. All rights reserved.</p>
                 <p class="mt-2 text-sm">A non-profit organization dedicated to reuniting families.</p>
             </div>
         </div>
     </footer>
 
+    <script>
+        // DOM Elements
+        const reportBtn = document.getElementById('report-missing-btn');
+        const reportModal = document.getElementById('report-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const cancelFormBtn = document.getElementById('cancel-form');
+        const missingPersonForm = document.getElementById('missing-person-form');
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const closeConfirmationBtn = document.getElementById('close-confirmation');
+        
+        // Search modal elements
+        const searchBtn = document.getElementById('search-database-btn');
+        const searchModal = document.getElementById('search-modal');
+        const closeSearchModalBtn = document.getElementById('close-search-modal');
+        
+        // Show Report Modal
+        reportBtn.addEventListener('click', () => {
+            reportModal.classList.remove('opacity-0', 'invisible');
+        });
+        
+        // Show Search Modal
+        searchBtn.addEventListener('click', () => {
+            searchModal.classList.remove('opacity-0', 'invisible');
+        });
+        
+        // Close Report Modal
+        const closeReportModal = () => {
+            reportModal.classList.add('opacity-0', 'invisible');
+        };
+        
+        // Close Search Modal
+        const closeSearchModal = () => {
+            searchModal.classList.add('opacity-0', 'invisible');
+        };
+        
+        // Close Confirmation Modal
+        const closeConfirmation = () => {
+            confirmationModal.classList.add('opacity-0', 'invisible');
+        };
+        
+        // Event Listeners
+        closeModalBtn.addEventListener('click', closeReportModal);
+        cancelFormBtn.addEventListener('click', closeReportModal);
+        closeSearchModalBtn.addEventListener('click', closeSearchModal);
+        closeConfirmationBtn.addEventListener('click', closeConfirmation);
+        
+        // Form Submission
+        missingPersonForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Here you would normally send the data to your C++ backend
+            // For this demo, we'll just show the confirmation modal
+            
+            // Reset form
+            missingPersonForm.reset();
+            
+            // Close report modal
+            closeReportModal();
+            
+            // Show confirmation
+            confirmationModal.classList.remove('opacity-0', 'invisible');
+        });
+        
+        // Close modals when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.add('opacity-0', 'invisible');
+            }
+        });
+    </script>
 </body>
 </html>
